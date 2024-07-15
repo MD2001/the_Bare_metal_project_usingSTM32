@@ -1,0 +1,5 @@
+../Src/GPIO_programe.c:21:6:MGPIO_voidSetPinDirection	21
+../Src/GPIO_programe.c:115:6:MGPIO_voidSetPinValue	13
+../Src/GPIO_programe.c:151:6:MGPIO_voidSetPortValue	12
+../Src/GPIO_programe.c:177:6:MGPIO_u8GetPinValue	7
+../Src/GPIO_programe.c:199:6:MGPIO_voidToglePin	3
