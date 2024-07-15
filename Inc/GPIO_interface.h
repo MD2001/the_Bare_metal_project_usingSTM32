@@ -47,12 +47,11 @@
 #define High	1
 #define Low		0
 
+
 void MGPIO_voidSetPinDirection(u8 Copy_Port,u8 Copy_Pin,u8 Copy_Mode);
 void MGPIO_voidSetPinValue(u8 Copy_Port,u8 Copy_Pin,u8 Copy_Value);
 void MGPIO_voidSetPortValue(u8 Copy_Port,u8 Copy_Value);
 void MGPIO_voidToglePin(u8 Copy_Port,u8 Copy_pin);
-
-
 u8 	 MGPIO_u8GetPinValue(u8 Copy_Port,u8 Copy_Pin);
 
 #endif
