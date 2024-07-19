@@ -1,4 +1,5 @@
 "./Src/GPIO_programe.o"
+"./Src/LCD_programe.o"
 "./Src/RCC_programe.o"
 "./Src/SysTic_Programe.o"
 "./Src/main.o"

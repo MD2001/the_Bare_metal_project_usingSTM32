@@ -14,6 +14,7 @@
 #include "RCC_interface.h"
 #include "GPIO_interface.h"
 #include "SysTic_interface.h"
+#include "LCD_interface.h"
 
 /***************************** Function protype Section *****************************/
 
@@ -22,7 +23,6 @@
 /***************************** main code Section *****************************/
 
 int main() {
-
 	MRCC_voidInitSysClock();
 	MRCC_voidEnablePeripheral(RCC_GPIOAEnable);
 	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN1, Output_PP_2MHZ);
@@ -31,9 +31,15 @@ int main() {
 	MGPIO_voidSetPinValue(MGPIO_GPIOA, MGPIO_PIN1, High);
 	MGPIO_voidSetPinValue(MGPIO_GPIOA, MGPIO_PIN3, Low);
 	MSysTic_voidInit();
-
+	HLCD_voidInit();
+	HLCD_voidSendData('H');
+	u8 x  ;
 	while (1) {
-		u8 x = MGPIO_u8GetPinValue(MGPIO_GPIOA, MGPIO_PIN2);
+		if(!MGPIO_u8GetPinValue(MGPIO_GPIOA, MGPIO_PIN2))
+		{
+			x=!x;
+		}
+
 		if (x == High) {
 			MGPIO_voidToglePin(MGPIO_GPIOA, MGPIO_PIN3); //red led
 			MGPIO_voidSetPinValue(MGPIO_GPIOA, MGPIO_PIN1, Low);
