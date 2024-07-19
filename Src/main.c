@@ -1,12 +1,11 @@
 /*
-******************************************************************************
-* @file     : main.c														 *
-* @Version  : 1.0.0															 *
-* @Auther   : Mohamed diaa										 			 *
-* @Detailes : the main application								     		 *
-******************************************************************************
-*/
-
+ ******************************************************************************
+ * @file     : main.c														 *
+ * @Version  : 1.0.0															 *
+ * @Auther   : Mohamed diaa										 			 *
+ * @Detailes : the main application								     		 *
+ ******************************************************************************
+ */
 
 /***************************** Includes Section *****************************/
 #include <stdint.h>
@@ -14,43 +13,46 @@
 #include "STDTYPE.h"
 #include "RCC_interface.h"
 #include "GPIO_interface.h"
-
-
-
+#include "SysTic_interface.h"
 
 /***************************** Function protype Section *****************************/
 
-
 /***************************** Globale variable Section *****************************/
-
-
 
 /***************************** main code Section *****************************/
 
-int main()
-{
+int main() {
 
 	MRCC_voidInitSysClock();
-    MRCC_voidEnablePeripheral(RCC_GPIOAEnable);
-    MGPIO_voidSetPinDirection(MGPIO_GPIOA,MGPIO_PIN1,Output_PP_2MHZ);
-    MGPIO_voidSetPinValue(MGPIO_GPIOA,MGPIO_PIN1,High);
-    MSysTic_voidInit();
+	MRCC_voidEnablePeripheral(RCC_GPIOAEnable);
+	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN1, Output_PP_2MHZ);
+	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN2, Input_PullUp);
+	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN3, Output_PP_2MHZ);
+	MGPIO_voidSetPinValue(MGPIO_GPIOA, MGPIO_PIN1, High);
+	MGPIO_voidSetPinValue(MGPIO_GPIOA, MGPIO_PIN3, Low);
+	MSysTic_voidInit();
 
-    while(1)
-    {
+	while (1) {
+		u8 x = MGPIO_u8GetPinValue(MGPIO_GPIOA, MGPIO_PIN2);
+		if (x == High) {
+			MGPIO_voidToglePin(MGPIO_GPIOA, MGPIO_PIN3); //red led
+			MGPIO_voidSetPinValue(MGPIO_GPIOA, MGPIO_PIN1, Low);
+			MSysTic_voidSetBusyWait(500000);
+		} else {
+			MGPIO_voidToglePin(MGPIO_GPIOA, MGPIO_PIN1); //green led
+			MGPIO_voidSetPinValue(MGPIO_GPIOA, MGPIO_PIN3, Low);
+			MSysTic_voidSetBusyWait(500000);
 
-    	MGPIO_voidToglePin(MGPIO_GPIOA,MGPIO_PIN1);
-    	MSysTic_voidSetBusyWait(100000);
-//    	for(u32 x=1;x<100000;x++);
-    }
-    return 0;
+		}
+
+	}
+	return 0;
 }
 
-
 /*
-*******************************************************************************
-ID		User          Date            Detailes
-*******************************************************************************
-1		Mohamed diaa	17Mar2024 		Task_11 mange the main file
+ *******************************************************************************
+ ID		User          Date            Detailes
+ *******************************************************************************
+ 1		Mohamed diaa	17Mar2024 		Task_11 mange the main file
 
-*/
+ */
