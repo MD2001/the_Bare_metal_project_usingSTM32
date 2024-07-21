@@ -1,4 +1,6 @@
 ../Src/LCD_programe.c:112:13:HLCD_voidInitPins	2
 ../Src/LCD_programe.c:127:6:HLCD_voidInit	1
-../Src/LCD_programe.c:155:6:HLCD_voidSendCommand	1
-../Src/LCD_programe.c:181:6:HLCD_voidSendData	1
+../Src/LCD_programe.c:156:6:HLCD_voidSendCommand	1
+../Src/LCD_programe.c:182:6:HLCD_voidSendData	1
+../Src/LCD_programe.c:212:6:HLCD_voidSendString	2
+../Src/LCD_programe.c:222:6:HLCD_voidGotoXY	3

@@ -25,6 +25,6 @@
 #define     Font5x11                  1 
 #define     Font5x8                   0
 /*********************some shortcut command*************************/
-#define     Display_Clera             1
+#define     Display_Clera             0b00000001
 
 #endif

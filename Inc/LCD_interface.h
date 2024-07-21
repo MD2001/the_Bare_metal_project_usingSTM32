@@ -17,10 +17,16 @@
    /*write function that use to send Command to LCD */
       void HLCD_voidSendCommand(u8 Copy_data);
 
+
+
   #else
    #error "you choise wrong configration"
 
   #endif
+      /*use to write string on lcd*/
+      void HLCD_voidSendString(u8 *Copy_u8Str);
+      /*use to move curser in display*/
+      void HLCD_voidGotoXY(u8 Copy_u8XPos, u8 Copy_u8YPos);
 
 #endif
 
