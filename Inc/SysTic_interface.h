@@ -8,10 +8,6 @@
 
 // intialize some paramter the configerd in config file
 void MSysTic_voidInit();
-// enable interrupt that fire when timer reach to zero
-static void MSysTic_voidEnableInterrupt(void);
-//disable interrupt
-static void MSysTic_voidDisableInterrupt(void);
 // Set busy wait fucation that hold the programe till time finish
 void MSysTic_voidSetBusyWait(u32 Copy_u32Value);
 // use to set interval timer interrupt 

@@ -15,6 +15,7 @@
 #include "GPIO_interface.h"
 #include "SysTic_interface.h"
 #include "LCD_interface.h"
+#include "LCD_config.h"
 
 /***************************** Function protype Section *****************************/
 
@@ -25,6 +26,7 @@
 int main() {
 	MRCC_voidInitSysClock();
 	MRCC_voidEnablePeripheral(RCC_GPIOAEnable);
+	MRCC_voidEnablePeripheral(RCC_GPIOBEnable);
 	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN1, Output_PP_2MHZ);
 	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN2, Input_PullUp);
 	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN3, Output_PP_2MHZ);
@@ -32,24 +34,18 @@ int main() {
 	MGPIO_voidSetPinValue(MGPIO_GPIOA, MGPIO_PIN3, Low);
 	MSysTic_voidInit();
 	HLCD_voidInit();
-	HLCD_voidSendData('H');
-	u8 x  ;
+	HLCD_voidSendData('S');
+	HLCD_voidSendData('S');
+	HLCD_voidSendData('S');
+	HLCD_voidSendData('S');
+	HLCD_voidSendData('W');
+	HLCD_voidSendData('W');
+	HLCD_voidSendData('W');
+	HLCD_voidSendData('W');
+
 	while (1) {
-		if(!MGPIO_u8GetPinValue(MGPIO_GPIOA, MGPIO_PIN2))
-		{
-			x=!x;
-		}
 
-		if (x == High) {
-			MGPIO_voidToglePin(MGPIO_GPIOA, MGPIO_PIN3); //red led
-			MGPIO_voidSetPinValue(MGPIO_GPIOA, MGPIO_PIN1, Low);
-			MSysTic_voidSetBusyWait(500000);
-		} else {
-			MGPIO_voidToglePin(MGPIO_GPIOA, MGPIO_PIN1); //green led
-			MGPIO_voidSetPinValue(MGPIO_GPIOA, MGPIO_PIN3, Low);
-			MSysTic_voidSetBusyWait(500000);
 
-		}
 
 	}
 	return 0;

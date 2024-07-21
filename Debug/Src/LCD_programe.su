@@ -1,4 +1,4 @@
-../Src/LCD_programe.c:32:10:HLCD_voidInit	8	static
-../Src/LCD_programe.c:45:10:HLCD_voidSendCommand	16	static
-../Src/LCD_programe.c:69:10:HLCD_voidSendData	16	static
-../Src/LCD_programe.c:92:17:HLCD_voidInitPins	8	static
+../Src/LCD_programe.c:112:13:HLCD_voidInitPins	8	static
+../Src/LCD_programe.c:127:6:HLCD_voidInit	8	static
+../Src/LCD_programe.c:155:6:HLCD_voidSendCommand	16	static
+../Src/LCD_programe.c:181:6:HLCD_voidSendData	16	static

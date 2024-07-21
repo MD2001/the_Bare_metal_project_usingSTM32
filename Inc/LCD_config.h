@@ -7,7 +7,7 @@
  1- LCD_8_BIT MODE   (defult)
  2- LCD_4_BIT MODE (the same fumctionalite but use less pins)
  */
-#define LCD_MODE    LCD_8_BIT
+#define LCD_MODE    LCD_4_BIT
 
 /**the direction of cursor
  *  options 
@@ -77,9 +77,9 @@
 
 /***********    data PIN       *************/
 
-#define DB0      MGPIO_GPIOB,MGPIO_PIN4                	 // PIN4   in port B
-#define DB1      MGPIO_GPIOB,MGPIO_PIN3                  // PIN3   in port B
-#define DB2      MGPIO_GPIOA,MGPIO_PIN15                 // PIN15  in port A
+#define DB0      MGPIO_GPIOA,MGPIO_PIN4                	 // PIN4   in port A
+#define DB1      MGPIO_GPIOA,MGPIO_PIN5                  // PIN5   in port A
+#define DB2      MGPIO_GPIOA,MGPIO_PIN6	                 // PIN6  in port A
 #define DB3      MGPIO_GPIOA,MGPIO_PIN12                 // PIN12  in port A
 #define DB4      MGPIO_GPIOA,MGPIO_PIN11                 // PIN11  in port A
 #define DB5      MGPIO_GPIOA,MGPIO_PIN10                 // PIN10  in port A
@@ -90,16 +90,16 @@
 
 #elif LCD_MODE == LCD_4_BIT
 
-        #define RS       MGPIO_GPIOA,MGPIO_PIN8					// PIN0 in port A
-        #define RW       MGPIO_GPIOA,MGPIO_PIN8                 // PIN1 in port A 
-        #define EN       MGPIO_GPIOA,MGPIO_PIN8                 // PIN2 in port A
+#define RS       MGPIO_GPIOB,MGPIO_PIN7                 // PIN7 in port B
+#define RW       MGPIO_GPIOB,MGPIO_PIN6                 // PIN6 in port B
+#define EN       MGPIO_GPIOB ,MGPIO_PIN5                // PIN5 in port B
                                                                 
         /***********    data PIN       *************/           
                                                                 
-        #define DB0      MGPIO_GPIOA,MGPIO_PIN8                 // PIN3 in port A
-        #define DB1      MGPIO_GPIOA,MGPIO_PIN8                 // PIN4 in port A
-        #define DB2      MGPIO_GPIOA,MGPIO_PIN8                // PIN5 in port A
-        #define DB3      MGPIO_GPIOA,MGPIO_PIN8                // PIN6 in port A
+#define DB4      MGPIO_GPIOA,MGPIO_PIN11                 // PIN11  in port A
+#define DB5      MGPIO_GPIOA,MGPIO_PIN10                 // PIN10  in port A
+#define DB6      MGPIO_GPIOA,MGPIO_PIN9            	     // PIN9   in port A
+#define DB7      MGPIO_GPIOA,MGPIO_PIN8                  // PIN18  in port A
 
         #define DL       0
 

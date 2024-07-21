@@ -6,12 +6,16 @@
     void HLCD_voidInit(void); 
   /*write function that use to send data to LCD */
     void HLCD_voidSendData(u8 Copy_data);
-  /*to chick if the right pins get config in right way*/
-    static void HLCD_voidInitPins(void);
  /*write function that use to send Command to LCD */
     void HLCD_voidSendCommand(u8 Copy_data);
 
   #elif LCD_MODE == LCD_4_BIT
+    /* use this function to set the LCD to 8-bit mode  */
+      void HLCD_voidInit(void);
+    /*write function that use to send data to LCD */
+      void HLCD_voidSendData(u8 Copy_data);
+   /*write function that use to send Command to LCD */
+      void HLCD_voidSendCommand(u8 Copy_data);
 
   #else
    #error "you choise wrong configration"
