@@ -10,7 +10,7 @@
 
 
 /***************************** Includes Section *****************************/
-#include "BIT_MATH.h"
+#include "BITMATH.h"
 #include "STDTYPE.h"
 
 #include "GPIO_interface.h"

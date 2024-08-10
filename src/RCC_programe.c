@@ -10,15 +10,25 @@
 
 
 /***************************** Includes Section *****************************/
-#include "BIT_MATH.h"
+#include "BITMATH.h"
 #include "STDTYPE.h"
-
+#include <math.h>
 #include "RCC_interface.h"
 #include "RCC_privet.h"
 #include "RCC_config.h"
 /***************************** Code Section *********************************/
 void MRCC_voidInitSysClock(void)
 {
+
+RCC_CFGR |= ((u8)(log2(RCC_APB1_PRESCALLER)+3))<<8 ;
+RCC_CFGR |= ((u8)(log2(RCC_APB2_PRESCALLER)+3))<<11 ;
+
+#if RCC_AHP_PRESCALLER <=16
+RCC_CFGR |= ((u8)(log2(RCC_AHP_PRESCALLER)+7))<<4;
+#elif
+RCC_CFGR |= ((u8)(log2(RCC_AHP_PRESCALLER)+6))<<4;
+#endif
+
 	#if			RCC_Clock_TYPE	==	RCC_HSE_CRYSTAL	
 				RCC_CR = 0x00010000;	//set HSEON HIGH / HSEBYP LOW
 				RCC_CFGR = 0x00000001;	//Set Source clcok HSE
