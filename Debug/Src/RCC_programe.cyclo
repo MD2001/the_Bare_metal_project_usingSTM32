@@ -1,3 +1,0 @@
-../Src/RCC_programe.c:20:6:MRCC_voidInitSysClock	1
-../Src/RCC_programe.c:63:6:MRCC_voidEnablePeripheral	6
-../Src/RCC_programe.c:81:6:MRCC_voidDisablePeripheral	6
