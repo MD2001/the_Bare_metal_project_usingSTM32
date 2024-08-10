@@ -33,34 +33,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := the_Bare_metal_project
+BUILD_ARTIFACT_NAME := the_Bare_metal_project1
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-the_Bare_metal_project.elf \
+the_Bare_metal_project1.elf \
 
 MAP_FILES += \
-the_Bare_metal_project.map \
+the_Bare_metal_project1.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-the_Bare_metal_project.list \
+the_Bare_metal_project1.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: the_Bare_metal_project.elf secondary-outputs
+main-build: the_Bare_metal_project1.elf secondary-outputs
 
 # Tool invocations
-the_Bare_metal_project.elf the_Bare_metal_project.map: $(OBJS) $(USER_OBJS) C:\STtest\the_Bare_metal_project\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "the_Bare_metal_project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\STtest\the_Bare_metal_project\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="the_Bare_metal_project.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+the_Bare_metal_project1.elf the_Bare_metal_project1.map: $(OBJS) $(USER_OBJS) C:\STtest\the_Bare_metal_project\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "the_Bare_metal_project1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\STtest\the_Bare_metal_project\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="the_Bare_metal_project1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +69,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-the_Bare_metal_project.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "the_Bare_metal_project.list"
+the_Bare_metal_project1.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "the_Bare_metal_project1.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout the_Bare_metal_project.elf the_Bare_metal_project.list the_Bare_metal_project.map
+	-$(RM) default.size.stdout the_Bare_metal_project1.elf the_Bare_metal_project1.list the_Bare_metal_project1.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

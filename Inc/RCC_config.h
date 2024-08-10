@@ -11,7 +11,7 @@
 			RCC_PLL			
 */
 
-#define RCC_Clock_TYPE	RCC_HSI
+#define RCC_Clock_TYPE	RCC_HSE_CRYSTAL
 
 /* Options:
 			RCC_PLL_IN_HSI_DIV_2
@@ -27,10 +27,10 @@
 	
 #endif
 /*this value must be between 0 and 512 "(step by factor 2)" and the max freq to the clock is 72 MHz*/ //2 is defult
-#define RCC_AHP_PRESCALLER	0
+#define RCC_AHP_PRESCALLER	2
 /*this value must be between 0 and 16 "(step by factor 2)" and the max freq to the clock is 36 MHz*/ //2 is defult
-#define RCC_APB1_PRESCALLER	0
+#define RCC_APB1_PRESCALLER	2
 /*this value must be between 0 and 16 "(step by factor 2)" and the max freq to the clock is 72 MHz*/ //2 is defult
-#define RCC_APB2_PRESCALLER	0
+#define RCC_APB2_PRESCALLER	2
 
 #endif	
