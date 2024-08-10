@@ -988,10 +988,10 @@ LOAD C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x00000d54       0x22 ./Src/RCC_programe.o
  .debug_macro   0x00000d76       0x36 ./Src/main.o
 
-.debug_line     0x00000000      0x710
- .debug_line    0x00000000      0x604 ./Src/RCC_programe.o
- .debug_line    0x00000604       0x91 ./Src/main.o
- .debug_line    0x00000695       0x7b ./Startup/startup_stm32f103c8tx.o
+.debug_line     0x00000000      0x711
+ .debug_line    0x00000000      0x605 ./Src/RCC_programe.o
+ .debug_line    0x00000605       0x91 ./Src/main.o
+ .debug_line    0x00000696       0x7b ./Startup/startup_stm32f103c8tx.o
 
 .debug_str      0x00000000     0x73c8
  .debug_str     0x00000000     0x70db ./Src/RCC_programe.o

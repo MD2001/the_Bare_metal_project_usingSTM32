@@ -42,12 +42,15 @@ RCC_CFGR |= ((u8)(log2(RCC_AHP_PRESCALLER)+6))<<4;
 		#if 		RCC_PLL_INPUT ==RCC_PLL_IN_HSI_DIV_2
 					RCC_CR= 0x01000001;		// Enable PLL & HSI
 					RCC_CFGR |= 0x00000002;	//Set HSI div 2
+					RCC_CFGR |= (RCC_PLL_MUL_VALL-2) << 16
         #elif       RCC_PLL_INPUT ==RCC_PLL_IN_HSE_DIV_2
 					RCC_CR= 0x01010000;		// Enable PLL & HSE
 					RCC_CFGR| = 0x00030002;	//Set HSE div 2
+					RCC_CFGR |= (RCC_PLL_MUL_VALL-2) << 16
         #elif       RCC_PLL_INPUT ==RCC_PLL_IN_HSE
 					RCC_CR= 0x01010000;		// Enable PLL & HSE
 					RCC_CFGR |= 0x00010002;	//Set HSE no divide
+					RCC_CFGR |= (RCC_PLL_MUL_VALL-2) << 16
 		#else		
 			#error "pll clock source is wrong"
 		
