@@ -15,7 +15,7 @@
 #include "STDTYPE.h"
 #include "RCC_interface.h"
 #include "GPIO_interface.h"
-
+#include "NVIC_interface.h"
 
 
 
@@ -30,7 +30,6 @@
 
 int main()
 {
-	MRCC_voidInitSysClock();
 
     while(1)
     {
