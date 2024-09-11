@@ -67,7 +67,7 @@
  *        3-  Output_PP_50MHZ		
  * 
  */
-#define PINS_MODE       Output_PP_2MHZ
+#define PINS_MODE       MGPIO_Output_PP_2MHZ
 
 #if LCD_MODE == LCD_8_BIT
 

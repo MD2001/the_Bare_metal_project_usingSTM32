@@ -1,5 +1,5 @@
-#include "../../LIB/STDTYPE.h"
-#include "../../LIB/BITMATH.h"
+#include "BITMATH.h"
+#include "STDTYPE.h"
 
 #include "EXTI_privet.h"
 #include "EXTI_config.h"

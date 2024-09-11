@@ -1,3 +1,5 @@
+"./Src/AFIO_Programe.o"
+"./Src/EXTI_programe.o"
 "./Src/GPIO_programe.o"
 "./Src/LCD_programe.o"
 "./Src/NVIC_programe.o"

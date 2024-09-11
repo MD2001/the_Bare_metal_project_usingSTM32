@@ -1,5 +1,5 @@
-#include "../../LIB/STDTYPE.h"
-#include "../../LIB/BITMATH.h"
+#include "BITMATH.h"
+#include "STDTYPE.h"
 
 #include "AFIO_Privet.h"
 #include "AFIO_Config.h"

@@ -42,11 +42,11 @@ static u8 Init_Pins = 0;
     void HLCD_voidSendCommand(u8 Copy_data)
     {
         HLCD_voidInitPins();
-        MGPIO_voidSetPinValue(RS,Low);     // Clear RS Low
+        MGPIO_voidSetPinValue(RS,MGPIO_Low);     // Clear RS MGPIO_Low
         MSysTic_voidSetBusyWait(13000);             //requier to initalize the systic peripheral 1ms 72MHz 
-        MGPIO_voidSetPinValue(RW,Low);      // Clear RW low
+        MGPIO_voidSetPinValue(RW,MGPIO_Low);      // Clear RW MGPIO_low
         MSysTic_voidSetBusyWait(13000); 
-        MGPIO_voidSetPinValue(EN,High);     // Set EN high
+        MGPIO_voidSetPinValue(EN,MGPIO_High);     // Set EN MGPIO_high
         MSysTic_voidSetBusyWait(26000);     // wiat 2ms 72MHz
 
         MGPIO_voidSetPinValue(DB0,GET_BIT(Copy_data,0));        /*send data to LCD in DB0*/
@@ -58,7 +58,7 @@ static u8 Init_Pins = 0;
         MGPIO_voidSetPinValue(DB6,GET_BIT(Copy_data,6));        /*send data to LCD in DB6*/
         MGPIO_voidSetPinValue(DB7,GET_BIT(Copy_data,7));        /*send data to LCD in DB7*/
 
-        MGPIO_voidSetPinValue(EN,Low);     // Clear EN low
+        MGPIO_voidSetPinValue(EN,MGPIO_Low);     // Clear EN MGPIO_low
     }
 
 
@@ -66,11 +66,11 @@ static u8 Init_Pins = 0;
     void HLCD_voidSendData(u8 Copy_data)
     {   
         HLCD_voidInitPins();
-        MGPIO_voidSetPinValue(RS,High);     // Set RS high
+        MGPIO_voidSetPinValue(RS,MGPIO_High);     // Set RS MGPIO_high
         MSysTic_voidSetBusyWait(13000);             //requier to initalize the systic peripheral 1ms 72MHz 
-        MGPIO_voidSetPinValue(RW,Low);      // Clear RW low
+        MGPIO_voidSetPinValue(RW,MGPIO_Low);      // Clear RW MGPIO_low
         MSysTic_voidSetBusyWait(13000); 
-        MGPIO_voidSetPinValue(EN,High);     // Set EN high
+        MGPIO_voidSetPinValue(EN,MGPIO_High);     // Set EN MGPIO_high
         MSysTic_voidSetBusyWait(26000);     // wiat 2ms 72MHz
 
         MGPIO_voidSetPinValue(DB0,GET_BIT(Copy_data,0));        /*sed data to LCD in DB0*/
@@ -82,7 +82,7 @@ static u8 Init_Pins = 0;
         MGPIO_voidSetPinValue(DB6,GET_BIT(Copy_data,6));        /*sed data to LCD in DB6*/
         MGPIO_voidSetPinValue(DB7,GET_BIT(Copy_data,7));        /*sed data to LCD in DB7*/
 
-        MGPIO_voidSetPinValue(EN,Low);     // Clear EN low
+        MGPIO_voidSetPinValue(EN,MGPIO_Low);     // Clear EN MGPIO_low
         
     }
     /*to chick if the right pins get config in right way*/
@@ -128,18 +128,18 @@ void HLCD_voidInit(void) {
 	MSysTic_voidSetBusyWait(520000); //requier to initalize the systic peripheral 40ms 72MHz
 	HLCD_voidInitPins();
 
-	MGPIO_voidSetPinValue(RS, Low);     // Clear RS Low
+	MGPIO_voidSetPinValue(RS, MGPIO_Low);     // Clear RS MGPIO_Low
 	MSysTic_voidSetBusyWait(13000); //requier to initalize the systic peripheral 1ms 72MHz
-	MGPIO_voidSetPinValue(RW, Low);      // Clear RW low
+	MGPIO_voidSetPinValue(RW, MGPIO_Low);      // Clear RW MGPIO_low
 	MSysTic_voidSetBusyWait(13000);
-	MGPIO_voidSetPinValue(EN, High);     // Set EN high
+	MGPIO_voidSetPinValue(EN, MGPIO_High);     // Set EN MGPIO_high
 	MSysTic_voidSetBusyWait(26000);     // wiat 2ms 72MHz
 
 	MGPIO_voidSetPinValue(DB4, GET_BIT(Function_Set, 4)); /*send data to LCD in DB4*/
 	MGPIO_voidSetPinValue(DB5, GET_BIT(Function_Set, 5)); /*send data to LCD in DB5*/
 	MGPIO_voidSetPinValue(DB6, GET_BIT(Function_Set, 6)); /*send data to LCD in DB6*/
 	MGPIO_voidSetPinValue(DB7, GET_BIT(Function_Set, 7)); /*send data to LCD in DB7*/
-	MGPIO_voidSetPinValue(EN, Low);     // Set EN Low
+	MGPIO_voidSetPinValue(EN, MGPIO_Low);     // Set EN MGPIO_Low
 
 	MSysTic_voidSetBusyWait(26000);     // wiat 2ms 72MHz
 	HLCD_voidSendCommand(Function_Set);
@@ -155,53 +155,53 @@ void HLCD_voidInit(void) {
 /*write function that use to send Command to LCD */
 void HLCD_voidSendCommand(u8 Copy_data) {
 	HLCD_voidInitPins();
-	MGPIO_voidSetPinValue(RS, Low);     // Clear RS Low
+	MGPIO_voidSetPinValue(RS, MGPIO_Low);     // Clear RS MGPIO_Low
 	MSysTic_voidSetBusyWait(13000); //requier to initalize the systic peripheral 1ms 72MHz
-	MGPIO_voidSetPinValue(RW, Low);      // Clear RW low
+	MGPIO_voidSetPinValue(RW, MGPIO_Low);      // Clear RW MGPIO_low
 	MSysTic_voidSetBusyWait(13000);
-	MGPIO_voidSetPinValue(EN, High);     // Set EN high
+	MGPIO_voidSetPinValue(EN, MGPIO_High);     // Set EN MGPIO_high
 	MSysTic_voidSetBusyWait(26000);     // wiat 2ms 72MHz
 
 	MGPIO_voidSetPinValue(DB4, GET_BIT(Copy_data, 4)); /*send data to LCD in DB4*/
 	MGPIO_voidSetPinValue(DB5, GET_BIT(Copy_data, 5)); /*send data to LCD in DB5*/
 	MGPIO_voidSetPinValue(DB6, GET_BIT(Copy_data, 6)); /*send data to LCD in DB6*/
 	MGPIO_voidSetPinValue(DB7, GET_BIT(Copy_data, 7)); /*send data to LCD in DB7*/
-	MGPIO_voidSetPinValue(EN, Low);     // Clear EN low
+	MGPIO_voidSetPinValue(EN, MGPIO_Low);     // Clear EN MGPIO_low
 	MSysTic_voidSetBusyWait(26000);     // wiat 2ms 72MHz
-	MGPIO_voidSetPinValue(EN, High);     // Set EN high
+	MGPIO_voidSetPinValue(EN, MGPIO_High);     // Set EN MGPIO_high
 	MSysTic_voidSetBusyWait(26000);     // wiat 2ms 72MHz
 	MGPIO_voidSetPinValue(DB4, GET_BIT(Copy_data, 0)); /*send data to LCD in DB4*/
 	MGPIO_voidSetPinValue(DB5, GET_BIT(Copy_data, 1)); /*send data to LCD in DB5*/
 	MGPIO_voidSetPinValue(DB6, GET_BIT(Copy_data, 2)); /*send data to LCD in DB6*/
 	MGPIO_voidSetPinValue(DB7, GET_BIT(Copy_data, 3)); /*send data to LCD in DB7*/
 
-	MGPIO_voidSetPinValue(EN, Low);     // Clear EN low
+	MGPIO_voidSetPinValue(EN, MGPIO_Low);     // Clear EN MGPIO_low
 }
 
 /*write function that use to send data to LCD */
 void HLCD_voidSendData(u8 Copy_data) {
 	HLCD_voidInitPins();
-	MGPIO_voidSetPinValue(RS, High);     // Set RS high
+	MGPIO_voidSetPinValue(RS, MGPIO_High);     // Set RS MGPIO_high
 	MSysTic_voidSetBusyWait(13000); //requier to initalize the systic peripheral 1ms 72MHz
-	MGPIO_voidSetPinValue(RW, Low);      // Clear RW low
+	MGPIO_voidSetPinValue(RW, MGPIO_Low);      // Clear RW MGPIO_low
 	MSysTic_voidSetBusyWait(13000);
-	MGPIO_voidSetPinValue(EN, High);     // Set EN high
+	MGPIO_voidSetPinValue(EN, MGPIO_High);     // Set EN MGPIO_high
 	MSysTic_voidSetBusyWait(26000);     // wiat 2ms 72MHz
 
 	MGPIO_voidSetPinValue(DB4, GET_BIT(Copy_data, 4)); /*send data to LCD in DB4*/
 	MGPIO_voidSetPinValue(DB5, GET_BIT(Copy_data, 5)); /*send data to LCD in DB5*/
 	MGPIO_voidSetPinValue(DB6, GET_BIT(Copy_data, 6)); /*send data to LCD in DB6*/
 	MGPIO_voidSetPinValue(DB7, GET_BIT(Copy_data, 7)); /*send data to LCD in DB7*/
-	MGPIO_voidSetPinValue(EN, Low);     // Clear EN low
+	MGPIO_voidSetPinValue(EN, MGPIO_Low);     // Clear EN MGPIO_low
 	MSysTic_voidSetBusyWait(26000);     // wiat 2ms 72MHz
-	MGPIO_voidSetPinValue(EN, High);     // Set EN high
+	MGPIO_voidSetPinValue(EN, MGPIO_High);     // Set EN MGPIO_high
 	MSysTic_voidSetBusyWait(26000);     // wiat 2ms 72MHz
 	MGPIO_voidSetPinValue(DB4, GET_BIT(Copy_data, 0)); /*send data to LCD in DB4*/
 	MGPIO_voidSetPinValue(DB5, GET_BIT(Copy_data, 1)); /*send data to LCD in DB5*/
 	MGPIO_voidSetPinValue(DB6, GET_BIT(Copy_data, 2)); /*send data to LCD in DB6*/
 	MGPIO_voidSetPinValue(DB7, GET_BIT(Copy_data, 3)); /*send data to LCD in DB7*/
 
-	MGPIO_voidSetPinValue(EN, Low);     // Clear EN low
+	MGPIO_voidSetPinValue(EN, MGPIO_Low);     // Clear EN MGPIO_low
 	MSysTic_voidSetBusyWait(26000);     // wiat 2ms 72MHz
 }
 
