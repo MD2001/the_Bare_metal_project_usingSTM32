@@ -30,6 +30,7 @@
 
 int main()
 {
+	MRCC_voidEnablePeripheral(RCC_GPIOAEnable);
 
     while(1)
     {
@@ -38,7 +39,15 @@ int main()
     return 0;
 }
 
+void EXTI0_IRQHandler()
+{
 
+}
+
+void EXTI1_IRQHandler()
+{
+
+}
 /*
 *******************************************************************************
 ID		User          Date            Detailes
@@ -46,3 +55,7 @@ ID		User          Date            Detailes
 1		Mohamed diaa	17Mar2024 		Task_11 mange the main file
 
 */
+
+
+
+

@@ -23,29 +23,29 @@
 #define MGPIO_PIN14	14	
 #define MGPIO_PIN15	15	
 
-#define Output_PP_10MHZ				0b0001
-#define Output_PP_2MHZ				0b0010
-#define Output_PP_50MHZ				0b0011
+#define MGPIO_Output_PP_10MHZ				0b0001
+#define MGPIO_Output_PP_2MHZ				0b0010
+#define MGPIO_Output_PP_50MHZ				0b0011
 
-#define Output_OpenDrain_10MHZ		0b0101
-#define Output_OpenDrain_2MHZ		0b0110
-#define Output_OpenDrain_50MHZ		0b0111
+#define MGPIO_Output_OpenDrain_10MHZ		0b0101
+#define MGPIO_Output_OpenDrain_2MHZ		    0b0110
+#define MGPIO_Output_OpenDrain_50MHZ		0b0111
 
-#define AF_PP_10MHZ					0b1001
-#define AF_PP_2MHZ					0b1010
-#define AF_PP_50MHZ					0b1011
-						
-#define AF_OpenDrain_10MHZ			0b1101
-#define AF_OpenDrain_2MHZ			0b1110
-#define AF_OpenDrain_50MHZ			0b1111
+#define MGPIO_AF_PP_10MHZ					0b1001
+#define MGPIO_AF_PP_2MHZ					0b1010
+#define MGPIO_AF_PP_50MHZ					0b1011
+					
+#define MGPIO_AF_OpenDrain_10MHZ			0b1101
+#define MGPIO_AF_OpenDrain_2MHZ			    0b1110
+#define MGPIO_AF_OpenDrain_50MHZ			0b1111
 
-#define Input_Analog				0b0000
-#define Input_Floating				0b0100
-#define Input_PullUp				0b1000	// Set ODR Register to 1
-#define Input_PullDown				0b1000	// Set ODR Register to 0
+#define MGPIO_Input_Analog				    0b0000
+#define MGPIO_Input_Floating				0b0100
+#define MGPIO_Input_PullUp				    0b1000	// Set ODR Register to 1
+#define MGPIO_Input_PullDown				0b1000	// Set ODR Register to 0
 
-#define High	1
-#define Low		0
+#define MGPIO_High	1
+#define MGPIO_Low		0
 
 
 void MGPIO_voidSetPinDirection(u8 Copy_Port,u8 Copy_Pin,u8 Copy_Mode);
