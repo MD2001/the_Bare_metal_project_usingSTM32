@@ -5,7 +5,10 @@
 #include "EXTI_config.h"
 #include "EXTI_interface.h"
 
-void void_MEXTIInit()
+
+static volatile void (*CALL_BACK_FUNC)(void);
+
+void MEXTI_voidInit()
 {
     #if EXTI_MODE == RISING
         SET_BIT(EXTI->RTSR,EXTI_LINE);
@@ -18,19 +21,19 @@ void void_MEXTIInit()
         #error "you choise wrong mode"
     #endif
 }
-void void_MEXTIEnableLine(u8 Copy_u8line)
+void MEXTI_voidEnableLine(u8 Copy_u8line)
 {
     SET_BIT(EXTI->IMR,Copy_u8line);
 }
-void void_MEXTIDisableLine(u8 Copy_u8line)
+void MEXTI_voidDisableLine(u8 Copy_u8line)
 {
     CLR_BIT(EXTI->IMR,Copy_u8line);
 }
-void void_MEXTISWInterupt(u8 Copy_u8line)
+void MEXTI_voidSWInterupt(u8 Copy_u8line)
 {
     SET_BIT(EXTI->SWIER,Copy_u8line);
 }
-void void_MEXTISignalLuche(u8 Copy_u8line, u8 Copy_u8Mode)
+void MEXTI_voidSignalLuche(u8 Copy_u8line, u8 Copy_u8Mode)
 {
     switch (Copy_u8Mode)
     {
@@ -39,4 +42,15 @@ void void_MEXTISignalLuche(u8 Copy_u8line, u8 Copy_u8Mode)
     case ON_CHANE:  SET_BIT(EXTI->RTSR,Copy_u8line);
                     SET_BIT(EXTI->FTSR,Copy_u8line); break;
     }
+}
+
+void MEXTI_voidSetCallBack(void(*ptf)(void))
+{
+	CALL_BACK_FUNC=ptf;
+}
+
+void EXTI0_IRQHandler()
+{
+	CALL_BACK_FUNC();
+
 }

@@ -26,11 +26,11 @@
 	#define RCC_PLL_MULL_VALL	4
 	
 #endif
-/*this value must be between 0 and 512 "(step by factor 2)" and the max freq to the clock is 72 MHz*/ //2 is defult
+/*this value must be between 0 and 512 "(step by factor 2)" and the max freq to the clock is 72 MHz*/ //0 is defult
 #define RCC_AHP_PRESCALLER	0
-/*this value must be between 0 and 16 "(step by factor 2)" and the max freq to the clock is 36 MHz*/ //2 is defult
+/*this value must be between 0 and 16 "(step by factor 2)" and the max freq to the clock is 36 MHz*/ //0 is defult
 #define RCC_APB1_PRESCALLER	0
-/*this value must be between 0 and 16 "(step by factor 2)" and the max freq to the clock is 72 MHz*/ //2 is defult
+/*this value must be between 0 and 16 "(step by factor 2)" and the max freq to the clock is 72 MHz*/ //0 is defult
 #define RCC_APB2_PRESCALLER	0
 
 #endif	

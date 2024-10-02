@@ -7,8 +7,8 @@ EXTI_MODE Options:
 2- FALLING        
 3- ON_CHANE       
 */
-#define EXTI_MODE       RISING
+#define EXTI_MODE       FALLING
 
-#define EXTI_LINE       0        /*from 0 to 15 */
+#define EXTI_LINE       0        /* from 0 to 15 */
 
 #endif
