@@ -44,7 +44,7 @@
 #define MGPIO_Input_PullUp				    0b1000	// Set ODR Register to 1
 #define MGPIO_Input_PullDown				0b1000	// Set ODR Register to 0
 
-#define MGPIO_High	1
+#define MGPIO_High		1
 #define MGPIO_Low		0
 
 

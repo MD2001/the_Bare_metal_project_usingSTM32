@@ -3,4 +3,5 @@
 ../Src/SysTic_Programe.c:66:13:MSysTic_voidEnableInterrupt	4	static
 ../Src/SysTic_Programe.c:71:13:MSysTic_voidDisableInterrupt	4	static
 ../Src/SysTic_Programe.c:76:6:MSysTic_voidInterval	16	static
-../Src/SysTic_Programe.c:94:6:SysTick_IRQHandler	8	static
+../Src/SysTic_Programe.c:93:6:MSysTic_voidStopTimer	4	static
+../Src/SysTic_Programe.c:100:6:SysTick_IRQHandler	8	static

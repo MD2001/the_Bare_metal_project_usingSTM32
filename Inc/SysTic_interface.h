@@ -12,6 +12,7 @@ void MSysTic_voidInit();
 void MSysTic_voidSetBusyWait(u32 Copy_u32Value);
 // use to set interval timer interrupt 
 void MSysTic_voidInterval(u32 Copy_u32Value,void (*ptr)(void));
+void MSysTic_voidStopTimer();
 #endif
 
 

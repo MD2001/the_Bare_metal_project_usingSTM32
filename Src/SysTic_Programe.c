@@ -89,6 +89,12 @@ void MSysTic_voidInterval(u32 Copy_u32Value,void (*ptr)(void))
     CallBack1 = ptr;                      //Set call back function 
 
 }
+
+void MSysTic_voidStopTimer()
+{
+	STK_VAL=0;
+	STK_LOAD=0;
+	}
 /***************************** Handlers Section *********************************/
 
 void SysTick_IRQHandler()

@@ -22,7 +22,7 @@ void MGPIO_voidSetPinDirection(u8 Copy_Port,u8 Copy_Pin,u8 Copy_Mode)
 {
 	if(Copy_Port<=2)
 	{
-		if(Copy_Pin>=16)
+		if(Copy_Pin<=16)
 		{
 			switch(Copy_Port)
 			{
@@ -120,7 +120,7 @@ void MGPIO_voidSetPinValue(u8 Copy_Port,u8 Copy_Pin,u8 Copy_Value)
 {
 	if(Copy_Port<=2)
 	{
-		if(Copy_Pin>=16)
+		if(Copy_Pin<=16)
 		{
 			switch(Copy_Port)
 			{

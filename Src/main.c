@@ -16,6 +16,7 @@
 #include "RCC_interface.h"
 #include "GPIO_interface.h"
 #include "NVIC_interface.h"
+#include "SysTic_interface.h"
 
 
 
@@ -30,28 +31,18 @@
 
 int main()
 {
+	MRCC_voidInitSysClock();
 	MRCC_voidEnablePeripheral(RCC_GPIOAEnable);
-	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN0, MGPIO_AF_PP_2MHZ);
-	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN1, MGPIO_AF_PP_2MHZ);
-	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN2, MGPIO_AF_PP_2MHZ);
+	MSysTic_voidInit();
 
-	MNVIC_voidEnableInterrupt(6);
-	MNVIC_voidSetPindingFlag(6);
+	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN1, MGPIO_Output_PP_2MHZ);
+
     while(1)
     {
-        
+
+
     }
     return 0;
-}
-
-void EXTI0_IRQHandler()
-{
-	MGPIO_voidSetPinValue(MGPIO_GPIOA, MGPIO_PIN0, MGPIO_High);
-}
-
-void EXTI1_IRQHandler()
-{
-
 }
 /*
 *******************************************************************************
