@@ -21,6 +21,7 @@
 /****************************** Gloable variable Section ****************************************/
 
 static void (*CallBack1) (void) = NULL_PTR_FUNCTION ;
+static MsysTic_u8Mode = MSYSTIC_MODE_SINGLE;
 
 /***************************** Code Section *********************************/
 
@@ -73,7 +74,7 @@ static void MSysTic_voidDisableInterrupt(void)
     CLR_BIT(STK_CTRL,1);
 }
 
-void MSysTic_voidInterval(u32 Copy_u32Value,void (*ptr)(void))
+void MSysTic_voidinterruptInterval(u32 Copy_u32Value,void (*Copy_ptr)(void))
 {
     if(Copy_u32Value<=0x7FFFFF)                          // if the value you enter is higher than 23-bit that is mean you enter not valied value 
     {
@@ -83,11 +84,28 @@ void MSysTic_voidInterval(u32 Copy_u32Value,void (*ptr)(void))
     else {
         //erorr
     }                       
+    CallBack1 = Copy_ptr;                      //Set call back function 
 
     MSysTic_voidEnableInterrupt();                      // just for readablity
+    /* Set mode to single Intervale */
+    MsysTic_u8Mode = MSYSTIC_MODE_INTERVAL;
+}
 
-    CallBack1 = ptr;                      //Set call back function 
+void MSysTic_voidinterruptSingle(u32 Copy_u32Value,void (*Copy_ptr)(void))
+{
+    if(Copy_u32Value<=0x7FFFFF)                          // if the value you enter is higher than 23-bit that is mean you enter not valied value 
+    {
+        STK_LOAD = Copy_u32Value;                       //Set the reload register value
+        SET_BIT(STK_CTRL,0);                            ///Set the Enable value to enable counter
+    }
+    else {
+        //erorr
+    }                       
+    CallBack1 = Copy_ptr;                      //Set call back function 
 
+    MSysTic_voidEnableInterrupt();                      // just for readablity
+    /* Set mode to single Intervale */
+    MsysTic_u8Mode = MSYSTIC_MODE_SINGLE;
 }
 
 void MSysTic_voidStopTimer()
@@ -99,6 +117,10 @@ void MSysTic_voidStopTimer()
 
 void SysTick_IRQHandler()
 {
+    if( MsysTic_u8Mode == MSYSTIC_MODE_SINGLE)
+    {
+        MSysTic_voidStopTimer();
+    }
     CallBack1();
 }
 
@@ -117,4 +139,5 @@ ID      User          Date            Detailes
                                                                 }
                                                                 + add glable variable section
                                                                 + add handler section
+5       Mohamed diaa    07OCT2024       Task93              make functions interaval and single & add single and interval options as variables
 */

@@ -11,7 +11,9 @@ void MSysTic_voidInit();
 // Set busy wait fucation that hold the programe till time finish
 void MSysTic_voidSetBusyWait(u32 Copy_u32Value);
 // use to set interval timer interrupt 
-void MSysTic_voidInterval(u32 Copy_u32Value,void (*ptr)(void));
+void MSysTic_voidinterruptInterval(u32 Copy_u32Value,void (*Copy_ptr)(void));
+// use to set single timer interrupt 
+void MSysTic_voidinterruptSingle(u32 Copy_u32Value,void (*Copy_ptr)(void));
 void MSysTic_voidStopTimer();
 #endif
 
@@ -28,4 +30,5 @@ ID      User          Date            Detailes
                                                                 change(set start value) <==> set busy wait
                                                                 
                                                                 }
+5       Mohamed diaa    07OCT2024       Task93              make functions interaval and single & add single and interval options as variables
 */

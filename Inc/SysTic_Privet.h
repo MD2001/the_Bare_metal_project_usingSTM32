@@ -12,5 +12,7 @@
 #define DISTIC  0
 #define  AHPDIV   0
 #define  AHPNODIV 1
+#define MSYSTIC_MODE_SINGLE     3
+#define MSYSTIC_MODE_INTERVAL     4
 
 #endif
