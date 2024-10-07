@@ -41,7 +41,7 @@ void voidGetFrame(void)
     }
     else
     {
-        u32FrameData[u8EdgeCounter] = MSTK_u32GetElapsedTime();
+        u32FrameData[u8EdgeCounter] = MSysTic_u32GetElapsedTime();
         MSysTic_voidinterruptSingle(1000000, voidTakeAction);
         u8EdgeCounter++;
     }
