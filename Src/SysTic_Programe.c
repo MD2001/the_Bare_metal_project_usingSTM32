@@ -93,6 +93,10 @@ void MSysTic_voidinterruptInterval(u32 Copy_u32Value,void (*Copy_ptr)(void))
 
 void MSysTic_voidinterruptSingle(u32 Copy_u32Value,void (*Copy_ptr)(void))
 {
+    /*Disable timer  */
+    CLR_BIT(STK_CTRL,0);
+    STK_VAL=0;
+
     if(Copy_u32Value<=0x7FFFFF)                          // if the value you enter is higher than 23-bit that is mean you enter not valied value 
     {
         STK_LOAD = Copy_u32Value;                       //Set the reload register value
@@ -113,6 +117,11 @@ void MSysTic_voidStopTimer()
 	STK_VAL=0;
 	STK_LOAD=0;
 	}
+
+u32 MSysTic_u32GetElapsedTime()
+{
+    return STK_VAL;
+}
 /***************************** Handlers Section *********************************/
 
 void SysTick_IRQHandler()

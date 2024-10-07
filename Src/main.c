@@ -22,12 +22,31 @@
 
 
 /***************************** Function protype Section *****************************/
-void Frame()
+volatile u8 u8StartFlag       = 0;
+volatile u32 u32FrameData[50] = {0};
+volatile u8 u8EdgeCounter     = 0;
+
+void voidTakeAction(void)
 {
-	asm("NOP");
+    asm("NOP");
 }
 
-/***************************** Globale variable Section *****************************/
+void voidGetFrame(void)
+{
+    if (u8StartFlag == 0)
+    {
+        /* Start Timer */
+        MSysTic_voidinterruptSingle(1000000, voidTakeAction);
+        u8StartFlag = 1;
+    }
+    else
+    {
+        u32FrameData[u8EdgeCounter] = MSTK_u32GetElapsedTime();
+        MSysTic_voidinterruptSingle(1000000, voidTakeAction);
+        u8EdgeCounter++;
+    }
+}
+
 
 
 
@@ -46,7 +65,7 @@ int main()
 	MGPIO_voidSetPinDirection(MGPIO_GPIOA, MGPIO_PIN3, MGPIO_Output_PP_2MHZ); /* GPIOA3 PP output*/
 
 	/*EXTI0 initialization*/
-	MEXTI_voidSetCallBack(Frame);
+	MEXTI_voidSetCallBack(voidGetFrame);
 	MEXTI_voidInit();		/* EXTI0 and in falling edge mood*/
 
 	/* Enable interrupts in EXTI0*/

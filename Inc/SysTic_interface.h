@@ -14,6 +14,8 @@ void MSysTic_voidSetBusyWait(u32 Copy_u32Value);
 void MSysTic_voidinterruptInterval(u32 Copy_u32Value,void (*Copy_ptr)(void));
 // use to set single timer interrupt 
 void MSysTic_voidinterruptSingle(u32 Copy_u32Value,void (*Copy_ptr)(void));
+/*get the vlue have been taken by timer since it start*/
+u32 MSysTic_u32GetElapsedTime();
 void MSysTic_voidStopTimer();
 #endif
 
