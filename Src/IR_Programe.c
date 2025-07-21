@@ -10,7 +10,7 @@
 #include "IR_interface.h" 
 
 
-
+ 
 void IR_u8Init()
 {
     /* initialize the RCC to get 1MHz */
